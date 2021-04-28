@@ -1,0 +1,128 @@
+#%RAML 1.0 Library
+types:
+  alert:
+   properties:
+      alertId?:
+        example: 1
+        type: integer
+      subscriptionId?:
+        example: 1
+        type: number
+        format: int
+      delayType:
+        enum:
+          - DELAYED
+          - CANCELLED
+        example: DELAYED
+        type: string
+      delayMins?:
+        example: "30"
+        type: string
+      delayDate?:
+        example: 2020-04-17
+        type: date-only
+
+  errorMessage:
+    properties:
+      statusCode:
+        example: "500"
+        type: string
+      message:
+        example: Internal Server Error
+        type: string
+
+  station:
+    properties:
+      stationCode:
+        example: "HLR"
+        type: string
+      stationName:
+        example: "Hall Road"
+        type: string
+        
+  subscription:
+     properties:
+      subscriptionId?:
+        example: 1
+        type: number
+        format: int
+      userId:
+        example: "00uc6jztm7yDPjFhI4x6"
+        type: string
+      sourceLocationCode:
+        example: BSK
+        type: string
+      destinationLocationCode:
+        example: WAT
+        type: string
+      fromTime:
+        example: 11:51:20
+        type: time-only
+      toTime:
+        example: 11:51:27
+        type: time-only
+      advanceNotificationMins:
+        example: 30
+        type: number
+        format: int
+
+  user:
+    properties:
+      firstName:
+        example: Jon
+        type: string
+      lastName:
+        example: Doe
+        type: string
+      email:
+        example: jon.doe@gmail.com
+        type: string
+      phone:
+        example: "00447456789012"
+        type: string
+      password?:
+        type: string
+      userId?:
+        example: "00uc6jztm7yDPjFhI4x6"
+        type: string
+  credential:
+    properties:
+      email:
+        example: test@test.com
+        type: string
+      password:
+        example: password
+        type: string
+      newPassword?:
+        example: newpassword
+        type: string
+  token:
+     properties:
+       tokenType:
+         type: string
+         example: "Bearer"
+       expiresIn:
+         type: integer
+         example: 3600
+       scope:
+         type: string
+         example: "user"
+       accessToken:
+         type: string
+         example: "eyJraWQiOiIzSmlEbnN4MEFPNHdnS3ZCVlRKTmlvdmdaamJ3bGZmajZESWJ4ODN6dkpNIiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULlctWDVHMG9HV2NfUGVzdXQ4YnpjU1FyWnhMT09IU"
+  links:
+     properties:
+       rel:
+         type: string
+         example : self
+       href?:
+         type: string
+
+  location:
+     properties:
+      sourceLocationCode:
+        example: BSK
+        type: string
+      destinationLocationCode:
+        example: WAT
+        type: string

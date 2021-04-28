@@ -1,0 +1,41 @@
+#%RAML 1.0
+title: nre-system-api
+description: This API retrieves delay deatails from National Rail SOAP API
+
+uses:
+  datatype: Datatypelibrary.raml
+
+types:
+
+/arrivals:
+    displayName: Arrival Board
+    description: Arrival Board for given source location
+    get:
+      displayName: Get Arriving Services
+      description: Get Arriving services to given source location
+      queryParameters:
+        sourceLocation:
+          example: BSK
+          type: string
+          maxLength: 3
+        destinationLocation:
+          example: WAT
+          type: string
+          maxLength: 3
+        timeWindowMins:
+          example: 1
+          type: number
+          format: int
+      responses:
+        200:
+          body:
+                application/json:
+                  type: object
+                  examples:
+                    !include /Examples/arrival-details-example.raml
+                  
+                    
+                   
+            
+  
+
